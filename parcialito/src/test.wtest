@@ -1,0 +1,28 @@
+import example.*
+
+test "es jugador estrella profesional" {
+var chaca = new Clubes(actividades=#{},equipos=#{},perfil=profesional,sanciones=0)
+var pepe = new Jugador(valorPase=1000,partidosJugados=20,club=chaca)
+	assert.equals(true, pepe.esEstrellaProfesional())
+
+}
+
+test "es jugador estrella tradicional" {
+var	uno = new ActividadSocial(socios=#{},socioOrganizador=pepe,sanciones=0)
+var	dos = new ActividadSocial(socios=#{},socioOrganizador=pepe,sanciones=0)
+var	tres = new ActividadSocial(socios=#{},socioOrganizador=pepe,sanciones=0)
+var chaca = new Clubes(actividades=#{},equipos=#{},perfil=tradicional,sanciones=0)
+var pepe = new Jugador(valorPase=1000,partidosJugados=20,club=chaca,actividadesSociales=#{uno,dos,tres})
+	assert.equals(true, pepe.esEstrellaTradicional())
+
+}
+
+test "es jugador estrella" {
+var	uno = new ActividadSocial(socios=#{},socioOrganizador=pepe,sanciones=0)
+var	dos = new ActividadSocial(socios=#{},socioOrganizador=pepe,sanciones=0)
+var	tres = new ActividadSocial(socios=#{},socioOrganizador=pepe,sanciones=0)
+var chaca = new Clubes(actividades=#{},equipos=#{},perfil=tradicional,sanciones=0)
+var pepe = new Jugador(valorPase=1000,partidosJugados=20,club=chaca,actividadesSociales=#{uno,dos,tres})
+	assert.equals(true, pepe.esJugadorEstrella())
+
+}
